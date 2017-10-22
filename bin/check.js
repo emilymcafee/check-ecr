@@ -10,10 +10,10 @@ const exec = (cmd, callback) => {
 };
 
 exec('git rev-parse HEAD', (err, gitsha) => {
-  if (err) return console.log('✘ ' + err.message);
+  if (err) return console.log(`[${new Date()}] ✘ ${err.message}`);
   gitsha = gitsha.trim();
   exec('basename $(pwd)', (err, repo) => {
-    if (err) return console.log('✘ ' + err.message);
+    if (err) return console.log(`[${new Date()}] ✘ ${err.message}`);
     repo = repo.trim();
     const q = queue(3);
     ['us-east-1', 'us-west-2', 'eu-west-1'].forEach(r => {
@@ -21,8 +21,8 @@ exec('git rev-parse HEAD', (err, gitsha) => {
     });
 
     q.awaitAll((err, res) => {
-      if (err) return console.log('✘ ' + err.message);
-      return console.log(`✔ Images for ${gitsha} found in all specified regions`);
+      if (err) return console.log(`[${new Date()}] ✘ ${err.message}`);
+      return console.log(`[${new Date()}] ✔ Images for ${gitsha} found in all specified regions`);
     });
   });
 });
