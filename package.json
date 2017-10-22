@@ -1,0 +1,17 @@
+{
+  "name": "check-ecr",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "bin": {
+    "check-ecr": "bin/check.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.138.0",
+    "d3-queue": "^3.0.7"
+  }
+}
